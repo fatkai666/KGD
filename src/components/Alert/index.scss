@@ -1,0 +1,49 @@
+.kgd-alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  @include zoom-animation(
+    $direction: 'top',
+    $scaleStart: scaleY(0),
+    $scaleEnd: scaleY(1),
+    $origin: center top,
+  ); 
+  
+  .kgd-alert-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+    cursor: pointer; 
+  }
+
+  .bold-title {
+    font-weight: 700; 
+  }
+
+  .kgd-alert-desc {
+    font-size: 0.875rem;
+    margin: 0.3rem 0 0; 
+  }
+}
+
+
+
+.kgd-alert-default {
+  @include kgd-alert-size ($white,$primary,$kgd-alert-default)
+ }
+
+.kgd-alert-success {
+  @include kgd-alert-size ($white,$success,$kgd-alert-success)
+}
+
+.kgd-alert-warning {
+  @include kgd-alert-size ($white,$warning,$kgd-alert-warning) 
+}
+
+.kgd-alert-danger {
+  @include kgd-alert-size ($white,$danger,$kgd-alert-danger)  
+}
