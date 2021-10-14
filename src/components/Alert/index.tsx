@@ -18,7 +18,7 @@ interface BaseAlert {
 }
 
 
-type AlertProps = BaseAlert & React.HTMLAttributes<HTMLDivElement>
+export type AlertProps = BaseAlert & React.HTMLAttributes<HTMLDivElement>
 
 const Alert : FC<AlertProps> = (props) => {
   const {

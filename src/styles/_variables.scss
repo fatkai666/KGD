@@ -283,3 +283,14 @@ $kgd-alert-success:                  #49ad17;
 $kgd-alert-danger:                   #d32535;
 $kgd-alert-warning:                  #efd005;
 $kgd-alert-default:                  #0262ef;
+
+//Tabs
+$tabs-border-width:                 1px !default;
+$tabs-border-color:                 $gray-300 !default; 
+
+//Tabs-item
+$kgd-tabs-nav-item-disabled:        $gray-600 !default;
+$tabs-item-active-border-width:     2px !default;  
+$tabs-item-active-color:            $primary !default;
+$tabs-item-border-width:            1px !default;  
+$tabs-item-border-color:            transparent !default;

@@ -25,7 +25,7 @@ interface BaseButton {
 
 type NativeButtonProps = BaseButton & React.ButtonHTMLAttributes<HTMLButtonElement> 
 type AnchorButtonProps = BaseButton & React.AnchorHTMLAttributes<HTMLAnchorElement>
-type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
 const Button : FC<ButtonProps>  = (props) => {
   const {
