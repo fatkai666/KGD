@@ -43,6 +43,19 @@ $font-size-lg:                $font-size-base * 1.25 !default;
 $font-size-sm:                $font-size-base * .875 !default;
 $font-size-root:              null !default;
 
+//icon-color
+$theme-colors : 
+(
+  'primary':     $primary,
+  'secondary':   $secondary,
+  'success':     $success,
+  'info':        $info,
+  'warning':     $warning,
+  'danger':      $danger,
+  'light':       $light,
+  'dark':        $dark,
+);
+
 // 字重
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;

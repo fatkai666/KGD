@@ -1,4 +1,12 @@
-import React, {FC, useState, createContext} from 'react'
+import {
+  FC, 
+  useState, 
+  createContext, 
+  HTMLAttributes, 
+  Children, 
+  FunctionComponentElement, 
+  cloneElement
+} from 'react'
 import classNames from 'classnames'
 import {TabItemProps} from './TabItem'
 
@@ -13,7 +21,7 @@ interface BaseTabs {
   defaultOpenTabs ?: number[];
 }
 
-export type TabsProps = BaseTabs & React.HTMLAttributes<HTMLUListElement>
+export type TabsProps = BaseTabs & HTMLAttributes<HTMLUListElement>
 
 interface ITabsContext {
   type ?: tabsType;
@@ -38,8 +46,7 @@ const Tabs : FC<TabsProps> = (props) => {
    } = props;
 
    const classes = classNames('kgd-tabs-nav', className, {
-     'nav-card' : type === 'card',
-     'nav-line' : type === 'line'
+     [`nav-${type}`] : type
    })
 
    const [currentActive, setActive] = useState(defaultIndex)
@@ -74,11 +81,11 @@ const Tabs : FC<TabsProps> = (props) => {
   }
 
   const renderChildren = () => {
-    return React.Children.map(children,(child, index) => {
-      const childElement = child as React.FunctionComponentElement<TabItemProps>
+    return Children.map(children,(child, index) => {
+      const childElement = child as FunctionComponentElement<TabItemProps>
       const { displayName } = childElement.type
       if(displayName === 'TabsItem') 
-      return React.cloneElement(childElement, { 
+      return cloneElement(childElement, { 
         index,
         ChildrenContent
       })

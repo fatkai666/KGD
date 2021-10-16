@@ -1,4 +1,13 @@
-import React, {FC, createContext, useState} from 'react'
+import {
+  FC, 
+  createContext, 
+  useState, 
+  HTMLAttributes, 
+  Children, 
+  FunctionComponentElement, 
+  cloneElement, 
+  CSSProperties
+} from 'react'
 import classNames from 'classnames'
 import { MenuItemProps } from './MenuItem'
 
@@ -10,7 +19,7 @@ interface BaseMenu {
   defaultIndex ?: string;
   onSelect ?: selectCallback;
   classNames ?: string;
-  style ?: React.CSSProperties;
+  style ?: CSSProperties;
   defaultOpenSubMenus ?: string[];
 }
 
@@ -23,7 +32,7 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({index:'0'})
 
-export type MenuProps = BaseMenu & React.HTMLAttributes<HTMLUListElement>
+export type MenuProps = BaseMenu & HTMLAttributes<HTMLUListElement>
 
 const Menu:FC<MenuProps> = (props) => {
   const {
@@ -37,8 +46,7 @@ const Menu:FC<MenuProps> = (props) => {
   } = props
 
   const classes = classNames('kgd-menu', className, {
-    'menu-vertical' : mode === 'vertical',
-    'menu-horizontal' : mode !== 'vertical'
+    [`menu-${mode}`] : mode
   })
 
   const [currentActive, setActive] = useState(defaultIndex)
@@ -56,11 +64,11 @@ const Menu:FC<MenuProps> = (props) => {
   }
 
   const renderChildren = () => {
-    return React.Children.map(children,(child, index) => {
-      const childElement = child as React.FunctionComponentElement<MenuItemProps>
+    return Children.map(children,(child, index) => {
+      const childElement = child as FunctionComponentElement<MenuItemProps>
       const { displayName } = childElement.type
       if(displayName === 'MenuItem' || displayName === 'SubMenu') 
-      return React.cloneElement(childElement, { 
+      return cloneElement(childElement, { 
         index:index.toString()
       })
       else console.error('Warning: Menu has a child which is not a MenuItem component')

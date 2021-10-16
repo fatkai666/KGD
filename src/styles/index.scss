@@ -7,6 +7,12 @@
 //mixin
 @import "mixin";
 
+//animation
+@import "animation";
+
+//infoTable
+@import 'infoTable';
+
 //button
 @import '../components/Button';
 
@@ -18,3 +24,7 @@
 
 //Tabs
 @import '../components/Tabs';
+
+//Icon
+@import '../components/Icon';
+

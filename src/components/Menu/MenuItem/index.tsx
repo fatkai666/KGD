@@ -1,4 +1,4 @@
-import {FC, useContext} from 'react'
+import {FC, useContext, LiHTMLAttributes, CSSProperties} from 'react'
 import classNames from 'classnames'
 import {MenuContext} from '../'
 
@@ -6,10 +6,10 @@ interface BaseMenuItem {
   index ?: string;
   disabled ?: boolean;
   className?: string;
-  style ?: React.CSSProperties;
+  style ?: CSSProperties;
 }
 
-export type MenuItemProps = BaseMenuItem & React.LiHTMLAttributes<HTMLLIElement>
+export type MenuItemProps = BaseMenuItem & LiHTMLAttributes<HTMLLIElement>
 
 const MenuItem:FC<MenuItemProps> = (props) => {
   const {

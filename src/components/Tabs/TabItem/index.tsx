@@ -1,4 +1,10 @@
-import React, {FC, useContext, useState, useEffect} from 'react'
+import {
+  FC, 
+  useContext, 
+  useState, 
+  useEffect, 
+  LiHTMLAttributes
+} from 'react'
 import classNames from 'classnames'
 import {TabsContext} from '../'
 
@@ -9,7 +15,7 @@ interface BaseTabsItem {
   ChildrenContent ?: Function,
 }
 
-export type TabItemProps = BaseTabsItem & React.LiHTMLAttributes<HTMLLIElement>
+export type TabItemProps = BaseTabsItem & LiHTMLAttributes<HTMLLIElement>
 
 const TabItem : FC<TabItemProps> = (props) => {
 

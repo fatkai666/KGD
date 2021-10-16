@@ -1,31 +1,35 @@
-import React, {FC} from 'react'
+import React, {FC, ButtonHTMLAttributes, AnchorHTMLAttributes} from 'react'
 
 import classNames from 'classnames'
 
-export enum ButtonType {
-  Primary = 'primary',
-  Danger = 'danger',
-  Default = 'default',
-  Link = 'link',
-}
+export type ButtonType = 'primary' | 'danger' | 'default' | 'link'
 
-export enum ButtonSize {
-  Large = 'lg',
-  Small = 'sm',
-}
+export type ButtonSize = 'lg' | 'sm'
 
 interface BaseButton {
   className ?: string,
+  /**设置 Button 的类型 */
   btnType ?: ButtonType,
+  /**设置 Button 的尺寸 */
   size ?: ButtonSize,
   children ?: React.ReactNode,
+  /**设置 Button 的禁用 */
   disabled ?: boolean,
   href ?: string,
 }
 
-type NativeButtonProps = BaseButton & React.ButtonHTMLAttributes<HTMLButtonElement> 
-type AnchorButtonProps = BaseButton & React.AnchorHTMLAttributes<HTMLAnchorElement>
+type NativeButtonProps = BaseButton & ButtonHTMLAttributes<HTMLButtonElement> 
+type AnchorButtonProps = BaseButton & AnchorHTMLAttributes<HTMLAnchorElement>
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
+
+/**
+ * 页面中最常用的的按钮元素，适合于完成特定的交互
+ * ### 引用方法
+ * 
+ * ~~~js
+ * import { Button } from 'kgd'
+ * ~~~
+ */
 
 const Button : FC<ButtonProps>  = (props) => {
   const {
@@ -40,9 +44,9 @@ const Button : FC<ButtonProps>  = (props) => {
   const classes = classNames('btn', className, {
     [`btn-${btnType}`] : btnType,
     [`btn-${size}`] : size,
-    'disabled' : btnType === ButtonType.Link && disabled,
+    'disabled' : btnType === 'link' && disabled,
   })
-  return btnType === ButtonType.Link && href ? 
+  return btnType === 'link' && href ? 
   (
     <a
       className = {classes}
@@ -65,7 +69,7 @@ const Button : FC<ButtonProps>  = (props) => {
 
 Button.defaultProps = {
   disabled: false,
-  btnType: ButtonType.Default
+  btnType: 'default'
 }
 
 export default Button;
