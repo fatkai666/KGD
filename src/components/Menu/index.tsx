@@ -15,11 +15,17 @@ type MenuMode = 'horizontal' | 'vertical'
 type selectCallback = (selectedIndex: string) => void
 
 interface BaseMenu {
+  /**设置菜单类型，横向或纵向 */
   mode ?: MenuMode;
+  /**默认 active 的菜单项的索引值 */
   defaultIndex ?: string;
+  /**点击菜单触发的函数 */
   onSelect ?: selectCallback;
+  /**用户自定义的样式类名 */
   classNames ?: string;
+  /**用户自定义的样式 */
   style ?: CSSProperties;
+  /**设置子菜单的默认打开 只在纵向模式下生效 */
   defaultOpenSubMenus ?: string[];
 }
 
@@ -33,6 +39,15 @@ interface IMenuContext {
 export const MenuContext = createContext<IMenuContext>({index:'0'})
 
 export type MenuProps = BaseMenu & HTMLAttributes<HTMLUListElement>
+
+/**
+ *为网站提供导航功能的菜单。支持横向纵向两种模式，支持下拉菜单。
+ * ### 引用方法
+ * 
+ * ~~~js
+ * import { Menu } from 'kgd'
+ * ~~~
+ */
 
 const Menu:FC<MenuProps> = (props) => {
   const {

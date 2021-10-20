@@ -78,7 +78,7 @@ const Alert: FC<AlertProps> = (props) => {
             className='kgd-alert-close'
             onClick={closeAlert(onClose as () => void)}
           >
-            <Icon icon='window-close' />
+            <Icon icon='times' />
           </span>
           <p>{description ? description : null}</p>
         </div>

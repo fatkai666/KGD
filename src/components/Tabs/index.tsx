@@ -14,10 +14,15 @@ type tabsType = 'line' | 'card'
 type SelectCallback = (SelectIndex:number) => void
 
 interface BaseTabs {
+  /**当前激活 tab 面板的 index，默认为0 */
   defaultIndex ?: number;
+  /**用户自定义选项卡样式类名 */
   className ?: string;
+  /**点击 Tab 触发的函数 */
   onSelect ?: SelectCallback
+  /**Tabs的样式，两种可选，默认为 line */
   type ?: tabsType
+  /**默认打开的Tab */
   defaultOpenTabs ?: number[];
 }
 
@@ -33,6 +38,15 @@ interface ITabsContext {
 export const TabsContext = createContext<ITabsContext>({
   index:0,
 })
+
+/**
+ *选项卡切换组件。 提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
+ * ### 引用方法
+ * 
+ * ~~~js
+ * import { Tabs } from 'kgd'
+ * ~~~
+ */
 
 const Tabs : FC<TabsProps> = (props) => {
 

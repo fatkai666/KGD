@@ -9,9 +9,13 @@ import classNames from 'classnames'
 import {TabsContext} from '../'
 
 interface BaseTabsItem {
+  /**选项卡下标 */
   index ?: number,
+  /**选项卡标签名 */
   label : any,
+  /**选项卡是否禁用 */
   disabled ?: boolean,
+  /**选项卡下内容 */
   ChildrenContent ?: Function,
 }
 

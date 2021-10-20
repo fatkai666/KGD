@@ -44,7 +44,7 @@ const AlertWithDescription = () => (
   </div>
 )
 
-storiesOf('Alert', module)
+storiesOf('Alert 警告', module)
   .add('Alert', defaultAlert)
   .add('不同类型的 Alert', AlertWithType)
   .add('添加描述的 Alert', AlertWithDescription)

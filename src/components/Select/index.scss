@@ -1,0 +1,109 @@
+.kgd-select {
+  position: relative;
+
+  .kgd-input-wrapper {
+    cursor: pointer;
+
+    &:hover {
+      input {
+        border-color: $primary;
+
+        &[readonly] {
+          background-color: $body-bg;
+          border-color: $gray-400;
+          cursor: pointer;
+          opacity: 1;
+        }
+
+        &:disabled {
+          background-color: $gray-200;
+          opacity: 1;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  &.menu-is-open {
+    .icon-wrapper {
+      transform: rotate(180deg) !important;
+    }
+  }
+
+  .icon-wrapper {
+    transition: transform .25s ease-in-out;
+    transform: rotate(0deg) !important;
+  }
+
+  .kgd-select-dropdown {
+    list-style: none;
+    padding-left: 0;
+    white-space: nowrap;
+    position: absolute;
+    background: $body-bg;
+    z-index: 100;
+    top: calc(100% + 8px);
+    left: 0;
+    border: $border-width solid $border-color;
+    box-shadow: $box-shadow;
+    width: 100%;
+
+    .kgd-select-item {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      color: $body-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &.is-selected {
+        color: $primary;
+        font-weight: $font-weight-bold;
+      }
+
+      &.is-disabled {
+        color: $secondary;
+        pointer-events: none;
+        cursor: default;
+      }
+
+      &:hover {
+        background-color: rgba(13, 110, 253, 0.1);
+      }
+    }
+  }
+
+  .kgd-selected-tags {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .kgd-tag {
+      height: 80%;
+      padding: 2px 5px;
+      box-sizing: border-box;
+      border: 1px solid rgba(13, 110, 253, 0.2);
+      margin-left: 6px;
+      border-radius: 3px;
+      color: $primary;
+      background-color: rgba(13, 110, 253, 0.1);
+    }
+
+    .kgd-icon {
+      margin-left: 3px;
+      cursor: pointer;
+
+      &:hover {
+        color: #0257d5;
+      }
+    }
+  }
+}
