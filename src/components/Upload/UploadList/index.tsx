@@ -1,15 +1,14 @@
-import { FC } from 'react'
+import React,{ FC } from 'react'
 
 import { uploadFile } from '../'
 import Icon from '../../Icon'
 import Progress from '../../Progress'
-
-interface UploadFileListProps {
+export interface UploadListProps {
   fileList: uploadFile[]
   onRemove: (_file: uploadFile) => void
 }
 
-const UploadList: FC<UploadFileListProps> = (props) => {
+const UploadList: FC<UploadListProps> = (props) => {
 
   const {
     fileList,

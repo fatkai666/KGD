@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react'
 
 import Tabs from './'
-import TabItem from './TabItem'
 import Icon from '../Icon'
 
 const defaultTabs = () => (
@@ -16,15 +15,15 @@ const defaultTabs = () => (
     onSelect={function noRefCheck(){}}
     type="line"
   >
-    <TabItem label="选项卡一">
+    <Tabs.Item label="选项卡一">
       this is content one
-    </TabItem>
-    <TabItem label="选项卡二">
+    </Tabs.Item>
+    <Tabs.Item label="选项卡二">
       this is content two
-    </TabItem>
-    <TabItem label="用户管理">
+    </Tabs.Item>
+    <Tabs.Item label="用户管理">
       this is content three
-    </TabItem>
+    </Tabs.Item>
   </Tabs>
   </div>
 )
@@ -41,18 +40,18 @@ const CardTabs = () => (
     onSelect={function noRefCheck(){}}
     type="card"
   >
-    <TabItem label="card1">
+    <Tabs.Item label="card1">
       this is card one
-    </TabItem>
-    <TabItem label="card2">
+    </Tabs.Item>
+    <Tabs.Item label="card2">
       this is content two
-    </TabItem>
-    <TabItem
+    </Tabs.Item>
+    <Tabs.Item
       disabled
       label="disabled"
     >
       this is content three
-    </TabItem>
+    </Tabs.Item>
   </Tabs>
   </div>
 )
@@ -69,12 +68,12 @@ const CustomCardTabs = () => (
     onSelect={function noRefCheck(){}}
     type="card"
   >
-    <TabItem label={<><Icon icon="exclamation-circle" />{'  '}自定义图标</>}>
+    <Tabs.Item label={<><Icon icon="exclamation-circle" />{'  '}自定义图标</>}>
       this is card one
-    </TabItem>
-    <TabItem label="tab2">
+    </Tabs.Item>
+    <Tabs.Item label="tab2">
       this is content two
-    </TabItem>
+    </Tabs.Item>
   </Tabs>
   </div>
 )

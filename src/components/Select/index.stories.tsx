@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react'
 
 import Select from './'
-import Option from './Option'
 
 const SimpleTest = () => {
   return (
@@ -17,14 +16,14 @@ const SimpleTest = () => {
         onVisibleChange={function noRefCheck() { }}
         placeholder="请选择"
       >
-        <Option value="nihao" />
-        <Option value="nihao2" />
-        <Option value="nihao3" />
-        <Option
+        <Select.Option value="nihao" />
+        <Select.Option value="nihao2" />
+        <Select.Option value="nihao3" />
+        <Select.Option
           disabled
           value="disabled"
         />
-        <Option value="nihao5" />
+        <Select.Option value="nihao5" />
       </Select>
     </div>
   )
@@ -45,11 +44,11 @@ const MutipleSelect = () => {
         onVisibleChange={function noRefCheck() { }}
         placeholder="支持多选"
       >
-        <Option value="nihao" />
-        <Option value="nihao2" />
-        <Option value="nihao3" />
-        <Option value="kgd" />
-        <Option value="kgd2" />
+        <Select.Option value="nihao" />
+        <Select.Option value="nihao2" />
+        <Select.Option value="nihao3" />
+        <Select.Option value="kgd" />
+        <Select.Option value="kgd2" />
       </Select>
     </div>
   )
@@ -68,9 +67,9 @@ const disableSelect = () => {
     name="kgd-select"
     placeholder="禁用啦！"
   >
-    <Option value="nihao" />
-    <Option value="nihao2" />
-    <Option value="nihao3" />
+    <Select.Option value="nihao" />
+    <Select.Option value="nihao2" />
+    <Select.Option value="nihao3" />
   </Select>
 </div>
   )

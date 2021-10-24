@@ -1,0 +1,22 @@
+{
+  "compilerOptions":{
+    "module" : "ESNext",
+    "target": "ES5",
+    //*.d.ts编译
+    "declaration": true,
+    //输出路径
+    "outDir": "dist",
+    "jsx": "react",
+    //路径读取模式
+    "moduleResolution": "node",
+    //import * from 'react'
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx"
+  ]
+}

@@ -1,4 +1,4 @@
-import {
+import React,{
   FC, 
   createContext, 
   useState, 
@@ -9,11 +9,11 @@ import {
   CSSProperties
 } from 'react'
 import classNames from 'classnames'
-import { MenuItemProps } from './MenuItem'
+import MenuItem, { MenuItemProps } from './MenuItem'
+import SubMenu, { SubMenuProps } from './SubMenu'
 
 type MenuMode = 'horizontal' | 'vertical'
 type selectCallback = (selectedIndex: string) => void
-
 interface BaseMenu {
   /**设置菜单类型，横向或纵向 */
   mode ?: MenuMode;
@@ -39,6 +39,11 @@ interface IMenuContext {
 export const MenuContext = createContext<IMenuContext>({index:'0'})
 
 export type MenuProps = BaseMenu & HTMLAttributes<HTMLUListElement>
+
+export type ImenuComponent = FC<MenuProps> & {
+  Item : FC<MenuItemProps>,
+  SubMenu : FC<SubMenuProps>,
+}
 
 /**
  *为网站提供导航功能的菜单。支持横向纵向两种模式，支持下拉菜单。
@@ -109,4 +114,9 @@ Menu.defaultProps = {
   defaultOpenSubMenus : [],
 }
 
-export default Menu;
+const completeMenu = Menu as ImenuComponent
+
+completeMenu.Item = MenuItem
+completeMenu.SubMenu = SubMenu
+
+export default completeMenu;

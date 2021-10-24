@@ -1,4 +1,4 @@
-import {
+import React,{
   FC, 
   useState, 
   createContext, 
@@ -8,7 +8,7 @@ import {
   cloneElement
 } from 'react'
 import classNames from 'classnames'
-import {TabItemProps} from './TabItem'
+import TabItem,{TabItemProps} from './TabItem'
 
 type tabsType = 'line' | 'card'
 type SelectCallback = (SelectIndex:number) => void
@@ -38,6 +38,10 @@ interface ITabsContext {
 export const TabsContext = createContext<ITabsContext>({
   index:0,
 })
+
+export type ITabsComponent = FC<TabsProps> & {
+  Item : FC<TabItemProps>
+}
 
 /**
  *选项卡切换组件。 提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
@@ -126,4 +130,7 @@ Tabs.defaultProps = {
   defaultOpenTabs : []
 }
 
-export default Tabs;
+const completeTabs = Tabs as ITabsComponent
+completeTabs.Item = TabItem
+
+export default completeTabs;

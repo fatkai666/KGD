@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/react'
 
 import Menu from './'
-import MenuItem from './MenuItem'
-import SubMenu from './SubMenu'
 
 const defaultMenu = () => (
   <div
@@ -17,23 +15,23 @@ const defaultMenu = () => (
     mode="horizontal"
     onSelect={function noRefCheck(){}}
   >
-    <MenuItem>
+    <Menu.Item>
       cool link
-    </MenuItem>
-    <MenuItem>
+    </Menu.Item>
+    <Menu.Item>
       cool link 2
-    </MenuItem>
-    <MenuItem disabled>
+    </Menu.Item>
+    <Menu.Item disabled>
       disabled
-    </MenuItem>
-    <SubMenu title="下拉选项">
-      <MenuItem>
+    </Menu.Item>
+    <Menu.SubMenu title="下拉选项">
+      <Menu.Item>
         下拉选项一
-      </MenuItem>
-      <MenuItem>
+      </Menu.Item>
+      <Menu.Item>
         下拉选项二
-      </MenuItem>
-    </SubMenu>
+      </Menu.Item>
+    </Menu.SubMenu>
   </Menu>
   </div>
 )
@@ -51,20 +49,20 @@ const VerticalMenu = () => (
     mode="vertical"
     onSelect={function noRefCheck(){}}
   >
-    <MenuItem>
+    <Menu.Item>
       cool link
-    </MenuItem>
-    <MenuItem>
+    </Menu.Item>
+    <Menu.Item>
       cool link 2
-    </MenuItem>
-    <SubMenu title="点击下拉选项">
-      <MenuItem>
+    </Menu.Item>
+    <Menu.SubMenu title="点击下拉选项">
+      <Menu.Item>
         下拉选项一
-      </MenuItem>
-      <MenuItem>
+      </Menu.Item>
+      <Menu.Item>
         下拉选项二
-      </MenuItem>
-    </SubMenu>
+      </Menu.Item>
+    </Menu.SubMenu>
   </Menu>
   </div>
 )
@@ -84,20 +82,20 @@ const DefaultOpenVerticalMenu = () => (
     mode="vertical"
     onSelect={function noRefCheck(){}}
   >
-    <MenuItem>
+    <Menu.Item>
       cool link
-    </MenuItem>
-    <MenuItem>
+    </Menu.Item>
+    <Menu.Item>
       cool link 2
-    </MenuItem>
-    <SubMenu title="默认展开下拉选项">
-      <MenuItem>
+    </Menu.Item>
+    <Menu.SubMenu title="默认展开下拉选项">
+      <Menu.Item>
         下拉选项一
-      </MenuItem>
-      <MenuItem>
+      </Menu.Item>
+      <Menu.Item>
         下拉选项二
-      </MenuItem>
-    </SubMenu>
+      </Menu.Item>
+    </Menu.SubMenu>
   </Menu>
   </div>
 )

@@ -1,4 +1,4 @@
-import {FC, useContext, LiHTMLAttributes, CSSProperties} from 'react'
+import React,{FC, useContext, LiHTMLAttributes, CSSProperties} from 'react'
 import classNames from 'classnames'
 import {MenuContext} from '../'
 

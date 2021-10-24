@@ -1,11 +1,11 @@
-import {FC, useState, DragEvent} from 'react'
+import React,{FC, useState, DragEvent} from 'react'
 import classNames from 'classnames'
 
-interface draggerProps {
+export interface DraggerProps {
   onFile : (file : FileList) => void
 }
 
-const Dragger : FC<draggerProps> = (props) => {
+const Dragger : FC<DraggerProps> = (props) => {
 
   const {
     onFile,

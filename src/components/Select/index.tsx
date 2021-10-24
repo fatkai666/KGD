@@ -1,4 +1,4 @@
-import { 
+import React,{ 
   FC, 
   useState, 
   createContext, 
@@ -14,7 +14,7 @@ import classNames from 'classnames'
 import Input from '../Input'
 import Icon from '../Icon'
 import Transition from '../Transition'
-import { OptionProps} from "./Option"
+import Option, { OptionProps} from "./Option"
 
 import useClickOutside from '../../hooks/useClickOutside'
 
@@ -50,6 +50,10 @@ export const SelectContext = createContext<IselectContext>({
   multiple: false,
   onChange: () => {}
 })
+
+export type ISelectComponent = FC<SelectProps> & {
+  Option : FC<OptionProps>
+}
 
 /**
  * 下拉选择器。 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
@@ -187,4 +191,7 @@ Select.defaultProps = {
   placeholder: '请选择'
 }
 
-export default Select;
+const completeSelect = Select as ISelectComponent
+completeSelect.Option = Option
+
+export default completeSelect;
