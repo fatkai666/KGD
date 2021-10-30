@@ -30,7 +30,7 @@ var Option = function (props) {
     };
     var removeTag = function (index) {
         context.tagsArray.splice(index, 1);
-        context.setTagsArray(context.tagsArray);
+        context.setTagsArray(__spreadArray([], context.tagsArray, true));
     };
     var classes = classNames('kgd-select-item', {
         'is-disabled': disabled,

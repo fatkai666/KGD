@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import { TabsContext } from '../';
 var TabItem = function (props) {
@@ -7,7 +7,7 @@ var TabItem = function (props) {
     var openedTabs = context.defaultOpenTabs;
     var isopened = openedTabs.includes(index);
     var _a = useState(isopened), tabsOpen = _a[0], setOpen = _a[1];
-    useEffect(function () {
+    useLayoutEffect(function () {
         index === context.index && setOpen(true);
         index === context.index && ChildrenContent && ChildrenContent(children, tabsOpen);
     }, [index, context.index, ChildrenContent, children, tabsOpen]);

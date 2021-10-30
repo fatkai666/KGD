@@ -2,7 +2,7 @@ import React,{
   FC, 
   useContext, 
   useState, 
-  useEffect, 
+  useLayoutEffect, 
   LiHTMLAttributes
 } from 'react'
 import classNames from 'classnames'
@@ -33,7 +33,7 @@ const TabItem : FC<TabItemProps> = (props) => {
 
   const [tabsOpen,setOpen] = useState(isopened)
 
-  useEffect(() =>{
+  useLayoutEffect(() =>{
     index === context.index && setOpen(true)
     index === context.index && ChildrenContent && ChildrenContent(children, tabsOpen)
   },[index,context.index,ChildrenContent,children,tabsOpen])

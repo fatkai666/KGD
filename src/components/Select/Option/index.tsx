@@ -51,7 +51,7 @@ const Option : FC<OptionProps> = (props) => {
 
   const removeTag = (index : number) => {
       context.tagsArray.splice(index,1)
-      context.setTagsArray(context.tagsArray)
+      context.setTagsArray([...context.tagsArray])
   }
 
   const classes = classNames('kgd-select-item',{

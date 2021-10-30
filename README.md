@@ -38,3 +38,5 @@ import { 组件名 } from 'kgd'
 import "kgd/dist/index.css"
 ```
 
+0.1.6更新：
+修复了Tabs切换时闪屏以及Select组件多选第二次点击选项没有及时取消选中的bug
